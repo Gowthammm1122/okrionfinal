@@ -6,12 +6,12 @@ const WhoCanUseSection = forwardRef(function WhoCanUseSection({ isVisible }, ref
   const items = [
     { icon: imgSvg10, label: "Universities" },
     { icon: imgSvg11, label: "Autonomous Colleges" },
-    { icon: imgSvg12, label: "Management Institutions" },
-    { icon: imgSvg13, label: "IQAC Teams" },
-    { icon: imgSvg14, label: "Engineering Institutions" },
-    { icon: imgSvg15, label: "Arts & Science Colleges" },
-    { icon: imgSvg16, label: "HODs and Faculty" },
-    { icon: imgSvg17, label: "Students, Office Staff & Administrators" }
+    { icon: imgSvg12, label: "Affiliated Colleges" },
+    { icon: imgSvg13, label: "Medical Colleges" },
+    { icon: imgSvg14, label: "Arts & Science Colleges" },
+    { icon: imgSvg15, label: "Law Colleges" },
+    { icon: imgSvg16, label: "Polytechnic Institutions" },
+    { icon: imgSvg17, label: "Management / Business Schools" }
   ];
 
   return (
@@ -20,7 +20,7 @@ const WhoCanUseSection = forwardRef(function WhoCanUseSection({ isVisible }, ref
         Who Can Use This Platform
       </h2>
       <p className="text-[#151515] text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[28px] mb-[30px] md:mb-[40px]">
-        Designed for everyone involved in the accreditation process
+        For Everyone Navigating NAAC, NBA, and NIRF
       </p>
       
       <div className="grid grid-cols-2 sm:grid-cols-2 gap-[20px] md:gap-[24px]">

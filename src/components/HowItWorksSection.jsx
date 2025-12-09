@@ -15,10 +15,10 @@ const HowItWorksSection = forwardRef(function HowItWorksSection({ isVisible }, r
   const lineContainerRef = useRef(null);
 
   const steps = [
-    { num: 1, icon: imgSvg2, title: "Data Collection", desc: "Departments submit data through structured digital forms." },
-    { num: 2, icon: imgSvg18, title: "Task Allocation", desc: "Departments submit data through structured digital forms." },
-    { num: 3, icon: imgSvg19, title: "Approvals", desc: "Departments submit data through structured digital forms." },
-    { num: 4, icon: imgSvg5, title: "Score & Grade Tracking", desc: "Departments submit data through structured digital forms." }
+    { num: 1, icon: imgSvg2, title: "Data Collection", desc: "Gather all required metrics, evidence, and documents in one unified, automated workflow." },
+    { num: 2, icon: imgSvg18, title: "Task Allocation", desc: "Assign tasks instantly to the right departments or users with intelligent auto-routing." },
+    { num: 3, icon: imgSvg19, title: "Approvals", desc: "Streamline validations with a clear, role-based approval flow for every submission." },
+    { num: 4, icon: imgSvg5, title: "Score & Grade Tracking", desc: "Monitor real-time scores, gaps, and predicted grades to stay on track for top performance." }
   ];
 
   useEffect(() => {
@@ -210,7 +210,7 @@ const HowItWorksSection = forwardRef(function HowItWorksSection({ isVisible }, r
           How It Works
         </h2>
         <p className="text-[#65758b] text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[28px]">
-          A streamlined six-step process from data collection to grade prediction
+          Four Simple Steps to Navigate Your Highest Rank
         </p>
       </div>
       

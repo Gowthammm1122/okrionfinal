@@ -12,7 +12,7 @@ const Footer = forwardRef(function Footer(props, ref) {
               <img alt="OKRION Logo" className="w-full h-full object-contain" src={imgLogoDark1} />
             </div>
             <p className="text-[rgba(248,250,252,0.7)] text-[13px] md:text-[14px] font-normal leading-[20px] md:leading-[22.75px]">
-              A centralized accreditation management system for NAAC, NBA, and NIRF. Built for accuracy, transparency, and faster compliance.
+              Navigate your institution's accreditation journey with confidence. A centralized platform that charts the roadmap for NAAC, NBA, and NIRF compliance—turning complex frameworks into one guided pathway toward excellence.
             </p>
           </div>
           

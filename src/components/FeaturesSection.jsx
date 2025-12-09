@@ -4,10 +4,10 @@ import { forwardRef } from 'react';
 
 const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) {
   const features = [
-    { icon: imgSvg6, title: "Data Normalization", desc: "The system cleans and standardizes all academic, administrative, and departmental data so every report stays error-free and NAAC-ready." },
-    { icon: imgSvg7, title: "Auto Task Allocation", desc: "Each metric and requirement is automatically assigned to the right department or user. Everyone knows what to do, when to do it, and what proof to submit." },
-    { icon: imgSvg8, title: "AI Sheet", desc: "An AI-driven workspace that analyzes submitted data, checks for gaps, predicts scores, and guides teams toward compliance and improvements." },
-    { icon: imgSvg9, title: "Automated NAAC Guidance", desc: "The platform reviews your data and generates actionable steps to improve your score. It supports a clear upgrade path from C to B, B to A, A to A++ with real-time recommendations." }
+    { icon: imgSvg6, title: "Data Normalisation", desc: "Convert unstructured data into clean, standardised information. Every report stays accurate, consistent, and accreditation-ready on your pathway." },
+    { icon: imgSvg7, title: "Auto Task Allocation", desc: "Tasks auto-generate from gaps and instantly route to the right teams. Every criterion moves forward without detours or delays." },
+    { icon: imgSvg8, title: "Report Builder", desc: "Turn simple prompts into complete, submission-ready reports in seconds. Intelligence automation keeps you on the right accreditation route." },
+    { icon: imgSvg9, title: "Automated Compliance Guidance", desc: "Auto-generate compliance reports and scorecards from live data. NAAC, NBA, and NIRF requirements stay updated in real-time, always on track." }
   ];
 
   return (
@@ -17,7 +17,7 @@ const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) 
           Powerful Features
         </h2>
         <p className="text-[#65758b] text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[28px]">
-          Everything you need to streamline your accreditation process
+          Everything built to chart the clearest pathway toward your highest rank
         </p>
       </div>
       

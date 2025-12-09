@@ -271,7 +271,7 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
             <input 
               type="text" 
               name="institution"
-              placeholder="Enter your college name"
+              placeholder="Enter your Institution name"
               className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
               required 
               disabled={isSubmitting}
