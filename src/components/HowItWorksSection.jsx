@@ -205,11 +205,11 @@ const HowItWorksSection = forwardRef(function HowItWorksSection({ isVisible }, r
 
   return (
     <section id="how-it-works" className={`relative px-4 md:px-8 lg:px-[60px] xl:px-[108px] py-[60px] md:py-[80px] max-w-[1440px] mx-auto lg:mr-[440px] xl:mr-[520px] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} ref={ref} data-node-id="79:3288">
-      <div className="mb-[30px] md:mb-[18px]">
-        <h2 className="text-[#0f1729] text-[32px] md:text-[40px] lg:text-[44px] font-bold leading-[38px] md:leading-[44px] lg:leading-[48px] tracking-[-1px] md:tracking-[-1.1px] lg:tracking-[-1.2px] mb-[12px] md:mb-[18px]">
+      <div className="mb-[30px] md:mb-[40px]">
+        <h2 className="text-[#020617] text-[30px] md:text-[38px] lg:text-[42px] font-semibold tracking-[-0.04em] mb-[10px]">
           How It Works
         </h2>
-        <p className="text-[#65758b] text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[28px]">
+        <p className="text-[#64748b] text-[15px] md:text-[17px] leading-[24px] max-w-[520px]">
           Four Simple Steps to Navigate Your Highest Rank
         </p>
       </div>

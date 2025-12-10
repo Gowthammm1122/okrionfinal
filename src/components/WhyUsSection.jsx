@@ -12,12 +12,14 @@ const WhyUsSection = forwardRef(function WhyUsSection({ isVisible }, ref) {
 
   return (
     <section id="why-us" className={`relative px-4 md:px-8 lg:px-[60px] xl:px-[105px] py-[60px] md:py-[80px] max-w-[1440px] mx-auto lg:mr-[440px] xl:mr-[520px] transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} ref={ref} data-node-id="79:3133">
-      <h2 className="text-slate-900 text-[32px] md:text-[44px] lg:text-5xl font-bold leading-[38px] md:leading-[44px] lg:leading-[48px] mb-[12px] md:mb-[16px]">
-        Why OKRion?
-      </h2>
-      <p className="text-slate-500 text-[16px] md:text-lg font-normal leading-[24px] md:leading-7 mb-[30px] md:mb-[40px] max-w-[689px]">
-        OKRion becomes your navigation partner showing exact routes, your position on each pathway, and how to reach excellence.
-      </p>
+      <div className="mb-[30px] md:mb-[40px]">
+        <h2 className="text-[#020617] text-[30px] md:text-[38px] lg:text-[42px] font-semibold tracking-[-0.04em] mb-[10px]">
+          Why OKRion?
+        </h2>
+        <p className="text-[#64748b] text-[15px] md:text-[17px] leading-[24px] max-w-[520px]">
+          OKRion becomes your navigation partner showing exact routes, your position on each pathway, and how to reach excellence.
+        </p>
+      </div>
       
       <div className="bg-[#1d9883] rounded-lg grid grid-cols-2 sm:grid-cols-2 gap-[1px]" data-name="Background" data-node-id="79:3136">
         {features.map((item, index) => (
