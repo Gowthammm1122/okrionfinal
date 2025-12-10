@@ -52,12 +52,25 @@ const HeroSection = forwardRef(function HeroSection({ isVisible }, ref) {
             Key Performance Gainers:
           </div>
           
-          <div className="flex flex-row items-center justify-start gap-[8px] sm:gap-[12px] md:gap-[14px] lg:gap-[20px] text-[rgba(0,0,0,0.6)] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] font-bold leading-[22px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] px-4 md:px-0 w-full pt-2" data-node-id="79:3127">
-            <span className="whitespace-nowrap">90% Workflow Automation</span>
-            <div className="bg-[#0f1729] h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" data-node-id="79:3129" />
-            <span className="whitespace-nowrap">95% Better Team Coordination</span>
-            <div className="bg-[#0f1729] h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" data-node-id="79:3131" />
-            <span className="whitespace-nowrap">95% Quality Excellence</span>
+          <div className="relative px-4 md:px-0 w-full pt-2 overflow-hidden" data-node-id="79:3127" style={{ contain: 'layout style paint' }}>
+            
+            <div className="flex flex-row items-center gap-[6px] sm:gap-[8px] md:gap-[10px] lg:gap-[14px] xl:gap-[20px] text-[rgba(0,0,0,0.6)] text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] xl:text-[16px] font-bold leading-[16px] sm:leading-[18px] md:leading-[20px] lg:leading-[22px] xl:leading-[28px] animate-carousel" style={{ willChange: 'transform', backfaceVisibility: 'hidden' }}>
+              {/* First set */}
+              
+              <span className="whitespace-nowrap flex-shrink-0">90% Workflow Automation</span>
+              <div className="bg-[#0f1729] h-[14px] sm:h-[16px] md:h-[18px] lg:h-[20px] xl:h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" data-node-id="79:3129" />
+              <span className="whitespace-nowrap flex-shrink-0">95% Better Team Coordination</span>
+              <div className="bg-[#0f1729] h-[14px] sm:h-[16px] md:h-[18px] lg:h-[20px] xl:h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" data-node-id="79:3131" />
+              <span className="whitespace-nowrap flex-shrink-0">95% Quality Excellence</span>
+              
+              {/* Duplicate set for seamless loop */}
+              <div className="bg-[#0f1729] h-[14px] sm:h-[16px] md:h-[18px] lg:h-[20px] xl:h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" />
+              <span className="whitespace-nowrap flex-shrink-0"> 90% Workflow Automation</span>
+              <div className="bg-[#0f1729] h-[14px] sm:h-[16px] md:h-[18px] lg:h-[20px] xl:h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" />
+              <span className="whitespace-nowrap flex-shrink-0">95% Better Team Coordination</span>
+              <div className="bg-[#0f1729] h-[14px] sm:h-[16px] md:h-[18px] lg:h-[20px] xl:h-[24px] w-px flex-shrink-0" data-name="Vertical Divider" />
+              <span className="whitespace-nowrap flex-shrink-0">95% Quality Excellence</span>
+            </div>
           </div>
         </div>
       </div>

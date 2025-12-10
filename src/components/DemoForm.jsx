@@ -225,98 +225,98 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
   };
 
   return (
-    <div className={`backdrop-blur-[10px] backdrop-filter bg-white ${hideHeader ? '' : 'border-4 border-[rgba(29,152,131,0.17)] border-solid rounded-[12px] shadow-[0px_8px_8px_0px_rgba(0,0,0,0.05),0px_4px_4px_0px_rgba(0,0,0,0.05),0px_1px_0px_0px_rgba(0,0,0,0.03)]'} ${hideHeader ? 'p-0' : 'p-[20px] md:p-[28px] pb-[480px]'} ${className}`}>
+    <div className={`backdrop-blur-[10px] backdrop-filter bg-white ${hideHeader ? '' : 'border- border-[rgba(29,152,131,0.17)] border-solid rounded-[12px] shadow-[0px_8px_8px_0px_rgba(0,0,0,0.05),0px_4px_4px_0px_rgba(0,0,0,0.05),0px_1px_0px_0px_rgba(0,0,0,0.03)]'} ${hideHeader ? 'p-0' : 'p-[16px] md:p-[28px]'} ${className} ${hideHeader ? '' : 'max-h-[500px] md:max-h-[600px] lg:max-h-[700px] overflow-y-auto custom-scrollbar-minimal'}`}>
       {!hideHeader && (
-      <div className="mb-[24px] md:mb-[36px]">
-        <h2 className="text-[#0f1729] text-[20px] md:text-[25.276px] font-bold leading-[normal] tracking-[-0.6319px] mb-[16px] md:mb-[22px]">
+      <div className="mb-[16px] md:mb-[36px]">
+        <h2 className="text-[#0f1729] text-[18px] md:text-[25.276px] font-bold leading-[normal] tracking-[-0.6319px] mb-[8px] md:mb-[22px]">
           Book a Free Demo
         </h2>
-        <p className="text-[#515151] text-[16px] md:text-[20px] font-normal leading-[24px] md:leading-[30px] tracking-[-0.4492px]">
+        <p className="text-[#515151] text-[13px] md:text-[20px] font-normal leading-[18px] md:leading-[30px] tracking-[-0.4492px]">
           Transform Your Accreditation Journey
         </p>
       </div>
       )}
       
-      <form className="space-y-[16px] md:space-y-[20px]" onSubmit={handleSubmit}>
+      <form className="space-y-[12px] md:space-y-[20px] pb-4" onSubmit={handleSubmit}>
         {/* Success/Error Message */}
-        {submitStatus.message && (
-          <div className={`p-4 rounded-lg ${
+            {submitStatus.message && (
+          <div className={`p-3 md:p-4 rounded-lg ${
             submitStatus.type === 'success' 
               ? 'bg-green-50 text-green-800 border border-green-200' 
               : 'bg-red-50 text-red-800 border border-red-200'
           }`}>
-            <p className="text-[14px] md:text-[16px]">{submitStatus.message}</p>
+            <p className="text-[12px] md:text-[16px]">{submitStatus.message}</p>
           </div>
         )}
 
-        <div className="space-y-[20px] md:space-y-[24px]">
-          <div className="space-y-[8px]">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+        <div className="space-y-[14px] md:space-y-[24px]">
+          <div className="space-y-[6px] md:space-y-[8px]">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Name <span className="text-[#e7000b]">*</span>
             </label>
             <input 
               type="text" 
               name="name"
               placeholder="Enter your full name"
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all text-[13px] md:text-[16px]" 
               required 
               disabled={isSubmitting}
             />
           </div>
           
-          <div className="space-y-[8px]">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+          <div className="space-y-[6px] md:space-y-[8px]">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Institution Name <span className="text-[#e7000b]">*</span>
             </label>
             <input 
               type="text" 
               name="institution"
               placeholder="Enter your Institution name"
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all text-[13px] md:text-[16px]" 
               required 
               disabled={isSubmitting}
             />
           </div>
         </div>
         
-        <div className="space-y-[20px] md:space-y-[24px]">
-          <div className="space-y-[8px]">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+        <div className="space-y-[14px] md:space-y-[24px]">
+          <div className="space-y-[6px] md:space-y-[8px]">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Official Email Address <span className="text-[#e7000b]">*</span>
             </label>
             <input 
               type="email" 
               name="email"
               placeholder="name@institution.edu"
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all text-[13px] md:text-[16px]" 
               required 
               disabled={isSubmitting}
             />
           </div>
           
-          <div className="space-y-[8px]">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+          <div className="space-y-[6px] md:space-y-[8px]">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Mobile Number <span className="text-[#e7000b]">*</span>
             </label>
             <input 
               type="tel" 
               name="mobile"
               placeholder="+91 XXXXXXXXXX"
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all text-[13px] md:text-[16px]" 
               required 
               disabled={isSubmitting}
             />
           </div>
         </div>
         
-        <div className="space-y-[20px] md:space-y-[24px]">
-          <div className="space-y-[8px]">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+        <div className="space-y-[14px] md:space-y-[24px]">
+          <div className="space-y-[6px] md:space-y-[8px]">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Designation / Role <span className="text-[#e7000b]">*</span>
             </label>
             <select 
               name="designation"
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all bg-white text-[14px] md:text-[16px]" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all bg-white text-[13px] md:text-[16px]" 
               required
               defaultValue=""
               disabled={isSubmitting}
@@ -328,8 +328,8 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
             </select>
           </div>
           
-          <div className="space-y-[8px] relative">
-            <label className="text-[14px] md:text-[16px] font-medium text-neutral-950 leading-[20px] md:leading-[24px] tracking-[-0.3125px]">
+          <div className="space-y-[6px] md:space-y-[8px] relative">
+            <label className="text-[12px] md:text-[16px] font-medium text-neutral-950 leading-[16px] md:leading-[24px] tracking-[-0.3125px]">
               Location <span className="text-[#e7000b]">*</span>
             </label>
             <input 
@@ -340,7 +340,7 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
               onChange={handleLocationChange}
               onFocus={() => locationInput.trim() && filteredLocations.length > 0 && setShowLocationSuggestions(true)}
               onBlur={() => setTimeout(() => setShowLocationSuggestions(false), 200)}
-              className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all" 
+              className="w-full h-[36px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] transition-all text-[13px] md:text-[16px]" 
               required 
               autoComplete="off"
               disabled={isSubmitting}
@@ -364,7 +364,7 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className="w-full bg-[#1d9883] h-[48px] md:h-[52px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] text-white text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] hover:bg-[#098a74] transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full bg-[#1d9883] h-[42px] md:h-[52px] rounded-[12px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] text-white text-[13px] md:text-[16px] font-bold leading-[18px] md:leading-[24px] hover:bg-[#098a74] transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
