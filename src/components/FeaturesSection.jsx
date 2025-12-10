@@ -50,7 +50,7 @@ const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) 
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[24px] lg:gap-[28px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-[20px] md:gap-[24px] lg:gap-[28px]">
         {features.map((feature, index) => (
           <article
             key={index}
@@ -66,7 +66,7 @@ const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) 
           >
             <div className="flex h-full flex-col gap-5 p-5 md:p-6">
               {/* Image */}
-              <div className="relative h-[190px] md:h-[220px] lg:h-[240px] w-full overflow-hidden rounded-xl bg-slate-950/5">
+              <div className="relative w-full aspect-video overflow-hidden rounded-xl bg-slate-950/5">
                 <img
                   src={feature.image}
                   alt={feature.title}
