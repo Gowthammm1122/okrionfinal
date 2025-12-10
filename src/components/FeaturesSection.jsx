@@ -1,26 +1,29 @@
-import { imgSvg6, imgSvg7, imgSvg8, imgSvg9 } from './assets';
+import datanormalImg from '../assets/images/datanormal.png';
+import automatedImg from '../assets/images/automated.png';
+import reportImg from '../assets/images/builder1.png';
+import guidanceImg from '../assets/images/guidance.png';
 
 import { forwardRef } from 'react';
 
 const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) {
   const features = [
     { 
-      icon: imgSvg6, 
+      image: datanormalImg,
       title: "Data Normalisation", 
       desc: "Convert unstructured data into clean, standardised information. Every report stays accurate, consistent, and accreditation-ready on your pathway."
     },
     { 
-      icon: imgSvg7, 
+      image: automatedImg,
       title: "Auto Task Allocation", 
       desc: "Tasks auto-generate from gaps and instantly route to the right teams. Every criterion moves forward without detours or delays."
     },
     { 
-      icon: imgSvg8, 
+      image: reportImg,
       title: "Report Builder", 
       desc: "Turn simple prompts into complete, submission-ready reports in seconds. Intelligence automation keeps you on the right accreditation route."
     },
     { 
-      icon: imgSvg9, 
+      image: guidanceImg,
       title: "Automated Compliance Guidance", 
       desc: "Auto-generate compliance reports and scorecards from live data. NAAC, NBA, and NIRF requirements stay updated in real-time, always on track."
     }
@@ -44,30 +47,18 @@ const FeaturesSection = forwardRef(function FeaturesSection({ isVisible }, ref) 
             <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip p-[24px] relative rounded-[inherit] w-full">
               {/* Image Section */}
               <div className="h-[200px] md:h-[250px] lg:h-[300px] pointer-events-none relative rounded-[12px] shrink-0 w-full overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden rounded-[12px] bg-gradient-to-br from-[rgba(29,152,131,0.1)] to-[rgba(29,152,131,0.05)] flex items-center justify-center">
-                  <div className="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center">
-                    <img 
-                      src={feature.icon} 
-                      alt={feature.title}
-                      className="w-full h-full object-contain opacity-80"
-                    />
-                  </div>
+                <div className="absolute inset-0 overflow-hidden rounded-[12px]">
+                  <img 
+                    src={feature.image} 
+                    alt={feature.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div aria-hidden="true" className="absolute border border-[#C1C1C1] border-solid inset-0 rounded-[12px]" />
               </div>
 
               {/* Frame with Icon and Text */}
               <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full">
-                {/* Icon Overlay */}
-                <div className="bg-[rgba(29,152,131,0.1)] relative rounded-[16px] shrink-0 size-[48px] md:size-[56px] flex items-center justify-center flex-shrink-0">
-                  <div className="w-6 h-6 md:w-7 md:h-7 flex items-center justify-center">
-                    <img 
-                      src={feature.icon} 
-                      alt=""
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                </div>
 
                 {/* Helper Text */}
                 <div className="content-stretch flex flex-col gap-[12px] md:gap-[17px] items-start leading-[0] not-italic relative shrink-0 flex-1">
