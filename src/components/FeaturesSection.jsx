@@ -1,7 +1,7 @@
 import datanormalImg from '../assets/images/Datanormalisation.png';
 import automatedImg from '../assets/images/Autotask.png';
 import reportImg from '../assets/images/reportbuilder.png';
-import guidanceImg from '../assets/images/automatedcoply.png';
+import guidanceImg from '../assets/images/Automatedcoply.png';
 
 import { forwardRef } from 'react';
 
