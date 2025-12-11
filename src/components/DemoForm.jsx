@@ -89,6 +89,8 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
   const [filteredLocations, setFilteredLocations] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [mobileInput, setMobileInput] = useState('');
+  const [mobileError, setMobileError] = useState('');
 
   const handleLocationChange = (e) => {
     const value = e.target.value;
@@ -110,17 +112,66 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
     setShowLocationSuggestions(false);
   };
 
+  const handleMobileChange = (e) => {
+    const value = e.target.value;
+    
+    // Remove any non-numeric characters except + and space
+    let cleanedValue = value.replace(/[^\d+\s]/g, '');
+    
+    // Extract digits only for processing
+    const digitsOnly = cleanedValue.replace(/\D/g, '');
+    
+    // Format: +91 followed by space and 10 digits
+    let formattedValue = '+91 ';
+    
+    // Add digits after +91 (limit to 10)
+    if (digitsOnly.startsWith('91')) {
+      formattedValue += digitsOnly.slice(2, 12); // Skip the 91 prefix, take next 10 digits
+    } else if (digitsOnly.startsWith('1')) {
+      formattedValue += digitsOnly.slice(1, 11); // Skip the 1, take next 10 digits
+    } else {
+      formattedValue += digitsOnly.slice(0, 10); // Take first 10 digits
+    }
+    
+    // Limit to +91 + space + 10 digits = 14 characters
+    if (formattedValue.length > 14) {
+      formattedValue = formattedValue.slice(0, 14);
+    }
+    
+    setMobileInput(formattedValue);
+    
+    // Validate: must be exactly +91 + space + 10 digits
+    const digitsAfterSpace = formattedValue.slice(4); // Get digits after "+91 "
+    if (formattedValue.length < 14) {
+      setMobileError('');
+    } else if (digitsAfterSpace.length !== 10) {
+      setMobileError('Mobile number must be exactly 10 digits');
+    } else if (!/^\d{10}$/.test(digitsAfterSpace)) {
+      setMobileError('Mobile number must contain only digits');
+    } else {
+      setMobileError('');
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: '', message: '' });
+
+    // Validate mobile number before submission
+    const mobileDigits = mobileInput.slice(4); // Get digits after "+91 "
+    if (mobileInput.length !== 14 || !/^\+91 \d{10}$/.test(mobileInput)) {
+      setMobileError('Please enter a valid 10-digit mobile number');
+      setIsSubmitting(false);
+      return;
+    }
 
     // Get form data
     const formData = {
       name: e.target.name.value,
       institution: e.target.institution.value,
       email: e.target.email.value,
-      mobile: e.target.mobile.value,
+      mobile: mobileInput, // Use the state value instead of form value
       designation: e.target.designation.value,
       location: locationInput
     };
@@ -204,6 +255,8 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
         // Reset form
         e.target.reset();
         setLocationInput('');
+        setMobileInput('');
+        setMobileError('');
         
         // Call custom onSubmit if provided
         if (onSubmit) {
@@ -303,10 +356,27 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
                 type="tel" 
                 name="mobile"
                 placeholder="+91 XXXXXXXXXX"
-                className="w-full h-[40px] md:h-[42px] border border-[#d1d5dc] rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] focus:ring-offset-0 transition-all text-[14px] md:text-[16px]" 
+                value={mobileInput}
+                onChange={handleMobileChange}
+                className={`w-full h-[40px] md:h-[42px] border rounded px-3 focus:outline-none focus:ring-2 focus:ring-[#1d9883] focus:ring-offset-0 transition-all text-[14px] md:text-[16px] ${
+                  mobileError 
+                    ? 'border-[#e7000b] focus:ring-[#e7000b]' 
+                    : 'border-[#d1d5dc]'
+                }`}
                 required 
                 disabled={isSubmitting}
+                maxLength={14}
               />
+              {mobileError && (
+                <p className="text-[12px] md:text-[14px] text-[#e7000b] mt-1">
+                  {mobileError}
+                </p>
+              )}
+              {!mobileError && mobileInput && mobileInput.length === 14 && (
+                <p className="text-[12px] md:text-[14px] text-[#1d9883] mt-1">
+                  ✓ Valid mobile number
+                </p>
+              )}
             </div>
             
             <div className="space-y-[8px]">
