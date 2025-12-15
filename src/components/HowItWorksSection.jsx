@@ -1,4 +1,4 @@
-import { imgLine1, imgSvg2, imgSvg18, imgSvg19, imgSvg5 } from './assets';
+import { imgLine1, hiwDataCollection, hiwTaskAllocation, hiwApprovals, hiwScoreTracking } from './assets';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,10 +15,10 @@ const HowItWorksSection = forwardRef(function HowItWorksSection({ isVisible }, r
   const lineContainerRef = useRef(null);
 
   const steps = [
-    { num: 1, icon: imgSvg2, title: "Data Collection", desc: "Gather all required metrics, evidence, and documents in one unified, automated workflow." },
-    { num: 2, icon: imgSvg18, title: "Task Allocation", desc: "Assign tasks instantly to the right departments or users with intelligent auto-routing." },
-    { num: 3, icon: imgSvg19, title: "Approvals", desc: "Streamline validations with a clear, role-based approval flow for every submission." },
-    { num: 4, icon: imgSvg5, title: "Score & Grade Tracking", desc: "Monitor real-time scores, gaps, and predicted grades to stay on track for top performance." }
+    { num: 1, icon: hiwDataCollection, title: "Data Collection", desc: "Gather all required metrics, evidence, and documents in one unified, automated workflow." },
+    { num: 2, icon: hiwTaskAllocation, title: "Task Allocation", desc: "Assign tasks instantly to the right departments or users with intelligent auto-routing." },
+    { num: 3, icon: hiwApprovals, title: "Approvals", desc: "Streamline validations with a clear, role-based approval flow for every submission." },
+    { num: 4, icon: hiwScoreTracking, title: "Score & Grade Tracking", desc: "Monitor real-time scores, gaps, and predicted grades to stay on track for top performance." }
   ];
 
   useEffect(() => {

@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 // EmailJS Configuration from environment variables
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_USER_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_USER_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // User confirmation template (fallback to admin template if not set)
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 // Google Sheets Configuration
@@ -191,23 +192,50 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
       // Parallel execution: Send to both EmailJS and Google Sheets
       const promises = [];
 
-      // 1. Send email using EmailJS
-      const emailPromise = emailjs.send(
+      // 1. Send email to admin using EmailJS
+      const adminEmailPromise = emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         emailData,
         EMAILJS_PUBLIC_KEY
       ).then(() => {
-        console.log('✅ Email sent successfully');
-        return { service: 'email', success: true };
+        console.log('✅ Admin email sent successfully');
+        return { service: 'admin_email', success: true };
       }).catch((error) => {
-        console.error('❌ Email send failed:', error);
-        return { service: 'email', success: false, error };
+        console.error('❌ Admin email send failed:', error);
+        return { service: 'admin_email', success: false, error };
       });
       
-      promises.push(emailPromise);
+      promises.push(adminEmailPromise);
 
-      // 2. Send to Google Sheets (if URL is configured)
+      // 2. Send confirmation email to user
+      const userEmailData = {
+        to_name: formData.name,
+        to_email: formData.email,
+        user_name: formData.name,
+        institution_name: formData.institution,
+        email: formData.email,
+        mobile: formData.mobile,
+        designation: formData.designation,
+        location: formData.location
+      };
+
+      const userEmailPromise = emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_USER_TEMPLATE_ID,
+        userEmailData,
+        EMAILJS_PUBLIC_KEY
+      ).then(() => {
+        console.log('✅ User confirmation email sent successfully');
+        return { service: 'user_email', success: true };
+      }).catch((error) => {
+        console.error('❌ User email send failed:', error);
+        return { service: 'user_email', success: false, error };
+      });
+      
+      promises.push(userEmailPromise);
+
+      // 3. Send to Google Sheets (if URL is configured)
       if (GOOGLE_SHEETS_URL) {
         const sheetsPromise = fetch(GOOGLE_SHEETS_URL, {
           method: 'POST',
@@ -231,22 +259,27 @@ export default function DemoForm({ className = "", onSubmit, hideHeader = false 
       const results = await Promise.all(promises);
       
       // Check results
-      const emailSuccess = results.find(r => r.service === 'email')?.success;
+      const adminEmailSuccess = results.find(r => r.service === 'admin_email')?.success;
+      const userEmailSuccess = results.find(r => r.service === 'user_email')?.success;
       const sheetsSuccess = results.find(r => r.service === 'sheets')?.success;
       
       // Determine success message
-      let successMessage = 'Thank you! Your demo request has been submitted successfully. We will contact you soon.';
+      let successMessage = 'Thank you! Your demo request has been submitted successfully. A confirmation email has been sent to your email address. We will contact you soon.';
       
-      if (emailSuccess && sheetsSuccess) {
-        successMessage = '✅ Success! Your request has been sent via email and saved to our records.';
-      } else if (emailSuccess && !GOOGLE_SHEETS_URL) {
+      if (adminEmailSuccess && userEmailSuccess && sheetsSuccess) {
+        successMessage = '✅ Success! Your request has been sent and a confirmation email has been delivered to your inbox.';
+      } else if (adminEmailSuccess && userEmailSuccess && !GOOGLE_SHEETS_URL) {
+        successMessage = '✅ Success! Your request has been sent and a confirmation email has been delivered to your inbox.';
+      } else if (adminEmailSuccess && userEmailSuccess && !sheetsSuccess) {
+        successMessage = '✅ Your request has been sent and a confirmation email has been delivered. (Note: Record saving had an issue, but your request was received.)';
+      } else if (adminEmailSuccess && !userEmailSuccess) {
+        successMessage = '✅ Your request has been submitted successfully. (Note: Confirmation email could not be sent, but your request was received.)';
+      } else if (adminEmailSuccess) {
         successMessage = '✅ Success! Your request has been sent via email.';
-      } else if (emailSuccess && !sheetsSuccess) {
-        successMessage = '✅ Your request has been sent via email. (Note: Record saving had an issue, but your request was received.)';
       }
       
-      // Show success if at least email worked
-      if (emailSuccess) {
+      // Show success if at least admin email worked
+      if (adminEmailSuccess) {
         setSubmitStatus({
           type: 'success',
           message: successMessage

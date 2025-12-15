@@ -1,4 +1,4 @@
-import { imgLogoDark1, imgSvg20, imgSvg21, imgSvg22, imgSvg23, imgSvg24 } from './assets';
+import { imgLogoDark1, footerLocation, footerMail } from './assets';
 
 import { forwardRef } from 'react';
 
@@ -30,13 +30,13 @@ const Footer = forwardRef(function Footer(props, ref) {
             <h3 className="text-slate-50 text-[16px] md:text-[18px] font-bold leading-[24px] md:leading-[28px] tracking-[-0.4px] md:tracking-[-0.45px] mb-[20px] md:mb-[24px]">Contact Details</h3>
             <div className="space-y-[14px] md:space-y-[16px]">
               <div className="flex gap-[10px] md:gap-[12px]">
-                <img alt="" className="w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex-shrink-0 mt-1" src={imgSvg20} />
+                <img alt="Location" className="w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex-shrink-0 mt-1" src={footerLocation} />
                 <p className="text-[rgba(248,250,252,0.7)] text-[13px] md:text-[14px] font-normal leading-[18px] md:leading-[20px]">
                   BLOCK-L, Embassy Tech Village, Outer Ring Rd, Devarabisanahalli, Bellandur, Bengaluru, Karnataka 560103
                 </p>
               </div>
               <div className="flex gap-[10px] md:gap-[12px] items-center">
-                <img alt="" className="w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex-shrink-0" src={imgSvg22} />
+                <img alt="Email" className="w-[16px] h-[16px] md:w-[18px] md:h-[18px] flex-shrink-0" src={footerMail} />
                 <p className="text-[rgba(248,250,252,0.7)] text-[13px] md:text-[14px] font-normal leading-[18px] md:leading-[20px]">info@snssquare.com</p>
               </div>
               {/* <div className="flex gap-[10px] md:gap-[12px] items-center">
